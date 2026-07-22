@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Test for Interview">
+    <test name="new testset">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.verifypolicy.tests.AddVerifyNewPolicyTest">
+                <methods>
+                    <!--<exclude name="testVerifyAddedPolicy"></exclude>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

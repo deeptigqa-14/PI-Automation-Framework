@@ -172,6 +172,14 @@ public class AddPolicyFlow {
         addPolicyPage.clickSavePolicy();
     }
 
+    public void saveChanges(){
+        addPolicyPage.clickSavePolicy();
+    }
+
+    public String getOpenPolicyName(){
+        return addPolicyPage.getPolicyName();
+    }
+
 
 
     public void createNewPolicy(PolicyData data){
@@ -220,6 +228,10 @@ public class AddPolicyFlow {
         addPolicy();
 
 
+    }
+
+    public void updateEnabledAadhaarVerification(boolean expectedStatus){
+        addPolicyPage.setEnableAadhaarVerification(expectedStatus);
     }
 
 }

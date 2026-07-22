@@ -10,11 +10,12 @@ import static io.restassured.RestAssured.*;
 public class ReadOneVerifyPolicyClient {
     private static final ConfigReader configReader = new ConfigReader();
     public ReadOneVerifyPolicyResponse readOneVerifyPolicy(String verifyPolicyId) {
+        String policyID= verifyPolicyId.toString().trim().replace("ID: ","");
         return given()
                 .spec(RequestSpecFactory.getVerifyPolicyRequestSpec())
                 .basePath(VerifyPolicyEndpoints.Read_One_Verify_Policy)
                 .pathParams("environmentId",configReader.getEnvironmentId())
-                .pathParams("verifyPolicyId", verifyPolicyId)
+                .pathParams("verifyPolicyId", policyID)
                 .when()
                 .get()
                 .then()

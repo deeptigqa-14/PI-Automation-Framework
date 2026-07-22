@@ -396,6 +396,9 @@ public class AddPolicyPage extends BasePage {
         click(savePolicy);
     }
 
+    public String getPolicyName(){
+        return getAttribute(policyName,"value");
+    }
 
 
 }

@@ -15,8 +15,8 @@ public class VerifyPoliciesFlow {
         return verifyPoliciesPage.getVerifyPoliciesPageTitle().contains("Verify Policies");
     }
 
-    public void selectPolicy(String policyName) {
-        verifyPoliciesPage.enterSearchText(policyName);
+    public void clickPolicyByName(String policyName) {
+        verifyPoliciesPage.clickPolicy(policyName);
         // Logic to verify the policy with the given name
     }
 
@@ -32,7 +32,18 @@ public class VerifyPoliciesFlow {
         verifyPoliciesPage.deletePolicy();
     }
 
+    public void updatePolicyByName(){
+        verifyPoliciesPage.clickUpdatePolicyBtn();
+    }
+
     public void searchPolicyByName(String policyName){
         verifyPoliciesPage.enterSearchText(policyName);
     }
+
+    public void closeAnyOpenPolicy()
+    {
+        verifyPoliciesPage.closeAnyOpenPolicy();
+    }
+
+    public boolean isPolicyListEmpty(){return verifyPoliciesPage.isPolicyListEmpty();}
 }

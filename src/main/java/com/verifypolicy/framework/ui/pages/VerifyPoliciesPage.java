@@ -9,6 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class VerifyPoliciesPage extends BasePage{
 
     @FindBy(xpath = "//button[@data-id='add-policy-icon']//*[local-name()='svg']")
@@ -31,7 +33,7 @@ public class VerifyPoliciesPage extends BasePage{
 
     @FindBy(xpath = "//div[@data-id='delete-modal']//h3[contains(text(),'Delete Policy')]")
     private WebElement deletePolicyPopup;
-    @FindBy(xpath="//div[@data-id='delete-modal']//button[contains(text(),'Delete')]")
+    @FindBy(xpath="//div[@data-id='delete-modal']//button[@data-id='delete-button']")
     private WebElement deleteBtnOnPopup;
 
     @FindBy(id="overviewDashboard")
@@ -39,6 +41,12 @@ public class VerifyPoliciesPage extends BasePage{
 
     @FindBy(xpath="//div[@data-id='header-actions']//button[@data-id='close-panel-icon']")
     private WebElement closePolicybutton;
+
+    @FindBy(xpath = "//button[@aria-label='create-group-label']//*[local-name()='svg']")
+    private WebElement updatePolicyBtn;
+
+    @FindBy(xpath = "//div[@data-id='policy-list']//div[@role='row']")
+    private List<WebElement> policyRows;
 
     public VerifyPoliciesPage(WebDriver driver) {
         super(driver);
@@ -58,11 +66,19 @@ public class VerifyPoliciesPage extends BasePage{
         type(searchInput, searchText);
     }
 
-    private By policyTitleByName(String policyName) {
-        return By.xpath("//span[contains(normalize-space(@title))='" + policyName + "']");
+    public boolean isPolicyListEmpty() {
+        return policyRows.isEmpty();
     }
 
-    public void clickPolicyByName(String policyName) {
+    public int getPolicyCount() {
+        return policyRows.size();
+    }
+
+    private By policyTitleByName(String policyName) {
+        return By.xpath("//span[contains(normalize-space(@title),'" + policyName + "')]");
+    }
+
+    public void clickPolicy(String policyName) {
         click(policyTitleByName(policyName));
     }
 
@@ -83,15 +99,22 @@ public class VerifyPoliciesPage extends BasePage{
     }
 
     public void deletePolicy(){
-      //  switchToVerifyPoliciesFrame();
-        click(closePolicybutton);
-      /*  clickHamBurgerIcon();
+        clickHamBurgerIcon();
         click(deleteBtn);
         if(isDeletePolicyPopupDisplayed()){
 
-           click(deletePolicyPopup);
+           click(deleteBtnOnPopup);
         }
-        click(overView);*/
+    }
+
+    public void closeAnyOpenPolicy(){
+        if(closePolicybutton.isDisplayed()) {
+            click(closePolicybutton);
+        }
+    }
+
+    public void clickUpdatePolicyBtn(){
+        click(updatePolicyBtn);
     }
 
 
