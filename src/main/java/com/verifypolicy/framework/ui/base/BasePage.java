@@ -1,8 +1,6 @@
 package com.verifypolicy.framework.ui.base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -52,7 +50,10 @@ public class BasePage {
 
     protected void type(WebElement element, String text) {
        waitForVisibility(element);
-        element.clear();
+        element.click();
+        element.sendKeys(Keys.CONTROL + "a");
+        element.sendKeys(Keys.DELETE);
+        //waitForVisibility(element);
         element.sendKeys(text);
     }
 
@@ -61,8 +62,27 @@ public class BasePage {
         return element.getText();
     }
 
+    protected String getAttribute(WebElement element, String attribute){
+        waitForVisibility(element);
+        return element.getAttribute(attribute);
+    }
+
+
     protected String getPageTitle() {
-        System.out.println("Page title is: " + driver.getTitle());
         return driver.getTitle();
     }
+    public void scrollIntoView(By locator) {
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+                element);
+    }
+
+    public void scrollIntoView(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+                element);
+    }
+
 }

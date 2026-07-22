@@ -50,4 +50,12 @@ public class ConfigReader {
         return properties.getProperty("admin.console.url");
     }
 
+    public String getUserName(){
+        return properties.getProperty("user.id");
+    }
+
+    public String getPassword(){
+        return properties.getProperty("user.password");
+    }
+
 }

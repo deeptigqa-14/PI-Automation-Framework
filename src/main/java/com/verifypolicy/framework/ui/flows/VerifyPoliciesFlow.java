@@ -12,17 +12,27 @@ public class VerifyPoliciesFlow {
     }
 
     public boolean isVerifyPoliciesPageDisplayed() {
-        System.out.println("Verify Policies Page Title: " + verifyPoliciesPage.getVerifyPoliciesPageTitle());
         return verifyPoliciesPage.getVerifyPoliciesPageTitle().contains("Verify Policies");
     }
 
     public void selectPolicy(String policyName) {
-
+        verifyPoliciesPage.enterSearchText(policyName);
         // Logic to verify the policy with the given name
     }
 
     public void clickAddPolicyButton()
     {
         verifyPoliciesPage.clickAddPolicyButton();
+    }
+    public String getNewPolicyID(){
+        return verifyPoliciesPage.getPolicyID();
+    }
+
+    public void deletePolicy(){
+        verifyPoliciesPage.deletePolicy();
+    }
+
+    public void searchPolicyByName(String policyName){
+        verifyPoliciesPage.enterSearchText(policyName);
     }
 }
