@@ -8,19 +8,19 @@ Architecture Overview
 Created 2 separate packages, one for UI and other for API.
 
 src/main/java/com.verifypolicy/framework
-api/
-client/ - flow files to generate request for API
-endpoint/ - generate endpoint for API
-model/ - has request, response, and common POJOs
-spec/- request specification Factory
-
-ui/
-base/- base setup for pages and tests to configure driver
-pages/ - page objects encapsulated locators and actions
-flows/- methods between tests and pages to perform actions
-utils/- common classes used by other classes like driver manager, extent manager, screenshot
-model/- to rest data provider in POJO
-listeners/- ExtentReport Listener
+* api/
+*     client/ - flow files to generate request for API
+*     endpoint/ - generate endpoint for API
+*     model/ - has request, response, and common POJOs
+*     spec/- request specification Factory
+* 
+* ui/
+*     base/- base setup for pages and tests to configure driver
+*     pages/ - page objects encapsulated locators and actions
+*     flows/- methods between tests and pages to perform actions
+*     utils/- common classes used by other classes like driver manager, extent manager, screenshot
+*     model/- to rest data provider in POJO
+*     listeners/- ExtentReport Listener
 
 SOLID
 --------------
