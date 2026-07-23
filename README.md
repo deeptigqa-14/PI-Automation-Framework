@@ -8,13 +8,14 @@ Architecture Overview
 Created 2 separate packages, one for UI and other for API.
 
 src/main/java/com.verifypolicy/framework
-* api/
+api/
+
     client/ - flow files to generate request for API
     endpoint/ - generate endpoint for API
     model/ - has request, response, and common POJOs
     spec/- request specification Factory
+ui/
 
-* ui/
     base/- base setup for pages and tests to configure driver
     pages/ - page objects encapsulated locators and actions
     flows/- methods between tests and pages to perform actions
