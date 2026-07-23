@@ -1,7 +1,7 @@
 # PI-Automation-Framework
-Selenium, RestAssured based Framework to verify policies 
+Selenium and RestAssured based Framework to verify policies 
 
-Tech/Tool used - Selenium, Rest Assured TestNG, Java, Maven
+Tech/Tool used - Selenium, RestAssured, TestNG, Java, Maven
 
 Architecture Overview
 -----------------------------
