@@ -8,6 +8,7 @@ Architecture Overview
 Created 2 separate packages, one for UI and other for API.
 
 src/main/java/com.verifypolicy/framework
+
 api/
 
     client/ - flow files to generate request for API
