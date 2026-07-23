@@ -45,4 +45,5 @@ public class VerifyPoliciesFlow {
     }
 
     public boolean isPolicyListEmpty(){return verifyPoliciesPage.isPolicyListEmpty();}
+    public int totalRows(){return verifyPoliciesPage.getPolicyCount();}
 }

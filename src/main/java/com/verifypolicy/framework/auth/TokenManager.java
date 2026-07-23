@@ -2,6 +2,7 @@ package com.verifypolicy.framework.auth;
 
 import com.verifypolicy.framework.api.clients.AuthTokenClient;
 import com.verifypolicy.framework.api.models.response.token.clientcredential.TokenResponse;
+import com.verifypolicy.framework.ui.utils.ReportLogger;
 
 import java.time.Instant;
 
@@ -12,7 +13,6 @@ public class TokenManager {
 
     public static String getValidToken() {
         if (accessToken == null || expiryTime == null || isTokenExpired()) {
-            System.out.println("Token is null or expired. Generating a new token.");
             generateNewToken();
         }
         return accessToken;
@@ -26,6 +26,7 @@ public class TokenManager {
         // Logic to generate a new token and set the accessToken and expiryTime
         AuthTokenClient authTokenClient = new AuthTokenClient();
         TokenResponse tokenResponse = authTokenClient.generateToken();
+        ReportLogger.logStep("New token generated. ");
         accessToken = tokenResponse.getAccess_token();
         expiryTime = Instant.now().plusSeconds(tokenResponse.getExpires_in());
     }
