@@ -1,8 +1,7 @@
 package com.verifypolicy.framework.ui.flows;
 
-import com.verifypolicy.framework.ui.base.DriverManager;
+import com.verifypolicy.framework.ui.utils.DriverManager;
 import com.verifypolicy.framework.ui.pages.VerifyPoliciesPage;
-import org.openqa.selenium.WebDriver;
 
 public class VerifyPoliciesFlow {
     private final VerifyPoliciesPage verifyPoliciesPage;

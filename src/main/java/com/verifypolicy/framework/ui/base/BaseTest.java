@@ -1,9 +1,8 @@
 package com.verifypolicy.framework.ui.base;
 
 import com.verifypolicy.framework.ui.flows.AddPolicyFlow;
-import org.testng.annotations.AfterMethod;
+import com.verifypolicy.framework.ui.utils.DriverManager;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {

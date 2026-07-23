@@ -1,6 +1,6 @@
 package com.verifypolicy.framework.ui.flows;
 
-import com.verifypolicy.framework.ui.base.DriverManager;
+import com.verifypolicy.framework.ui.utils.DriverManager;
 import com.verifypolicy.framework.ui.pages.DashboardPage;
 
 public class DashboardFlow {

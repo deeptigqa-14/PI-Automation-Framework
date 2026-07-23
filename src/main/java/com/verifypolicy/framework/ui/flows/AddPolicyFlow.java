@@ -1,6 +1,6 @@
 package com.verifypolicy.framework.ui.flows;
 
-import com.verifypolicy.framework.ui.base.DriverManager;
+import com.verifypolicy.framework.ui.utils.DriverManager;
 import com.verifypolicy.framework.ui.model.PolicyData;
 import com.verifypolicy.framework.ui.pages.AddPolicyPage;
 import com.verifypolicy.framework.ui.utils.GenerateTestData;

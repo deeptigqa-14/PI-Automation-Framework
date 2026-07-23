@@ -1,4 +1,4 @@
-package com.verifypolicy.framework.ui.base;
+package com.verifypolicy.framework.ui.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

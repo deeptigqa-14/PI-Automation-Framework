@@ -8,8 +8,10 @@ import com.verifypolicy.framework.ui.flows.DashboardFlow;
 import com.verifypolicy.framework.ui.flows.LoginFlow;
 import com.verifypolicy.framework.ui.flows.VerifyPoliciesFlow;
 import com.verifypolicy.framework.ui.model.PolicyData;
+import com.verifypolicy.framework.ui.utils.ReportLogger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 public class AddVerifyNewPolicyTest extends BaseTest {
@@ -23,16 +25,17 @@ public class AddVerifyNewPolicyTest extends BaseTest {
 
     @Test(dataProvider="policyData", priority = 1)
     public void testAddVerifyNewPolicy(PolicyData data) {
-
-        System.out.println("STEP 1: Login to PI Console");
+        ReportLogger.logStep("STEP 1: Login to PI Console by given username and password");
         loginFlow.loginToPIAdminConsole();
+        ReportLogger.logStep("Verify user is navigated to Dashboard");
         Assert.assertTrue(dashboardFlow.isDashboardPageDisplayed(), "Dashboard page is not displayed after login.");
-        System.out.println("STEP 2: Click on Identify Verification--> Verify Policies");
+        ReportLogger.logStep("STEP 2: Click on Identify Verification --> Verify Policies");
         dashboardFlow.clickPingOneVerifyLink();
+        ReportLogger.logStep("Verify user is navigated to Verify Policies");
         Assert.assertTrue(verifyPoliciesFlow.isVerifyPoliciesPageDisplayed(),"Verify Policies page not displayed.");
-        System.out.println("STEP 3: Click on + sign to Add New Policy");
+        ReportLogger.logStep("STEP 3: Click on + sign to Add New Policy");
         verifyPoliciesFlow.clickAddPolicyButton();
-        System.out.println("STEP 4: Fill the data and click save");
+        ReportLogger.logStep("STEP 4: Fill the data and click save"+ data.toString());
         addPolicyFlow.createNewPolicy(data);
         policyName =addPolicyFlow.policyName;
         System.out.println("New Policy Name: "+ policyName);
