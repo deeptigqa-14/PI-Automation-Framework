@@ -6,8 +6,8 @@ Tech/Tool used - Selenium, RestAssured, TestNG, Java, Maven
 Architecture Overview
 -----------------------------
 Created 2 separate packages, one for UI and other for API.
-src/main/java/com.verifypolicy/framework
 
+src/main/java/com.verifypolicy/framework
 api/
 client/ - flow files to generate request for API
 endpoint/ - generate endpoint for API
